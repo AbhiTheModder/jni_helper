@@ -23,7 +23,7 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
-          name: demo.apk
+          name: demoapk
           path: demo_apk/app/build/outputs/apk/debug/app-debug.apk
   test:
     name: Test JNI extraction
