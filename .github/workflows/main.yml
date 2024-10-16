@@ -21,7 +21,7 @@ jobs:
       - name: Build APK
         run: cd demo_apk && bash ./gradlew assembleDebug --stacktrace
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: demoapk
           path: demo_apk/app/build/outputs/apk/debug/app-debug.apk
@@ -32,9 +32,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download APK from build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: demoapk
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: preinstall
         run: pip3 install -r requirements.txt
       - name: test
@@ -47,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download APK from build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: demoapk
       - name: Create Release
