@@ -34,7 +34,7 @@ jobs:
       - name: Download APK from build
         uses: actions/download-artifact@v4
         with:
-          pattern: demo.apk
+          pattern: demo*
       - name: preinstall
         run: pip3 install -r requirements.txt
       - name: test
@@ -49,7 +49,7 @@ jobs:
       - name: Download APK from build
         uses: actions/download-artifact@v4
         with:
-          pattern: demo.apk
+          pattern: demo*
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
